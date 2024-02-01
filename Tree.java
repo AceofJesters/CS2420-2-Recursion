@@ -139,7 +139,17 @@ public class Tree<E extends Comparable<? super E>> {
      * Print all paths from root to leaves
      */
     public void printAllPaths() {
-        // TODO:
+        // save node to array
+
+        // if node is not leaf node
+            // printAllPaths for left branch
+            // for right branch
+
+        // if node is leaf node
+            // print array
+            // print newline
+
+        // remove node from array
     }
 
     /**
