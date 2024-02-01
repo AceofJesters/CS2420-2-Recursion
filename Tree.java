@@ -140,7 +140,16 @@ public class Tree<E extends Comparable<? super E>> {
      * @return Count of embedded binary search trees
      */
     public int countBST() {
-        // TODO:
+        // parameters are level searched, current level, counter
+
+        // if node level == searched level
+            // add one to counter
+
+        // if node level != searched level
+            // add one to current level
+            // count left child node
+            // count right child node
+
         return 0;
     }
 
