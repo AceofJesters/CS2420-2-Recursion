@@ -43,8 +43,7 @@ public class Tree<E extends Comparable<? super E>> {
      * Return a string containing the tree contents as a tree with one node per line
      */
     public String toString() {
-        // TODO: Figure out indent/formatting
-        // TODO: Make sure self returns before left branches, but left branches print after
+        // arguments passed in: layer, string array, printed
 
         // while namePrinted false
             // print name
@@ -53,14 +52,18 @@ public class Tree<E extends Comparable<? super E>> {
         // find parent node value
         // if no parent node, save as "no parent"
 
-        // if tree empty, print "empty tree"
+        // if tree empty, return "empty tree"
 
         // if node has right child
             // call toString for right child
-        // if node has left child
-            // call toString for left child
 
-        // return "node value, [parent node value]")
+        // add newline, correct amount of tabs to array
+        // add node to array
+
+        // if node has left child
+            // call toString for node left child
+
+        // return updated array
         return "";
     }
 
@@ -68,10 +71,27 @@ public class Tree<E extends Comparable<? super E>> {
      * Return a string containing the tree contents as a single line
      */
     public String inOrderToString() {
-        // TODO:
+        // arguments passed in: layer, string array, printed
 
-        //
+        // while namePrinted false
+        // print name
+        // set namePrinted to true
 
+        // find parent node value
+        // if no parent node, save as "no parent"
+
+        // if tree empty, return "empty tree"
+
+        // if node has left child
+        // call toString for node left child
+
+        // add newline, correct amount of tabs to array
+        // add node to array
+
+        // if node has right child
+        // call toString for right child
+
+        // return updated array
 
         return "";
     }
