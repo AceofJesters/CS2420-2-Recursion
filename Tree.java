@@ -112,8 +112,24 @@ public class Tree<E extends Comparable<? super E>> {
      * @param node node from which to find the in-order successor
      */
     public BinaryTreeNode inOrderSuccessor(BinaryTreeNode node) {
-        // TODO:
+        // if right child exists, run binaryTreeChildSearch()
+        // else, run binaryTreeParentSearch
         return null;
+    }
+
+    public BinaryTreeNode binaryTreeChildSearch(BinaryTreeNode node) {
+        // if node has left child
+            // binaryTreeChildSearch left child
+        // else return value of node
+        return null;
+    }
+
+    public BinaryTreeNode binaryTreeParentSearch(BinaryTreeNode node) {
+        // if node is smaller than analysed value
+            // if parent exists
+                // binaryTreeParentSearch parent
+            // else return null
+        // else return value of node
     }
 
     /**
