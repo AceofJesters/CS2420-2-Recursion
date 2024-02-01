@@ -100,7 +100,11 @@ public class Tree<E extends Comparable<? super E>> {
      * reverse left and right children recursively
      */
     public void flip() {
-        // TODO:
+        // parameters: old tree node, new tree
+
+        // if node has no parent, add to new tree as base node
+        // add node's right to new tree's equivalent node's left
+        // add node's left to new tree's equivalent node's right
     }
 
     /**
@@ -160,14 +164,10 @@ public class Tree<E extends Comparable<? super E>> {
     public void balanceTree() {
         // arguments: tree info, stringed, indents, parent node value
 
-        // if not namePrinted
-            // add tree name to string array
-            // set nameprinted to true
-
         // if not stringed
             // call toString to put tree in string format
             // set stringed to true
-        
+
         // insert (value of array space at len/2) at root node
         // save numbers to left of value to a temp array
         // balanceTree() for smaller array
