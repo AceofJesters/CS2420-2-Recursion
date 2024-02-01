@@ -158,8 +158,9 @@ public class Tree<E extends Comparable<? super E>> {
      * @return Count of embedded binary search trees
      */
     public int countBST() {
-
-        return 0;
+        // parameters: node info, bstcounter
+        // if left root is bst and right root is bst, add 1 to bstcounter
+        return 0; // return bstcounter
     }
 
     /**
