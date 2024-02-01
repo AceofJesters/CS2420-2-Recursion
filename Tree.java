@@ -49,10 +49,10 @@ public class Tree<E extends Comparable<? super E>> {
             // print name
             // set namePrinted to true
 
+        // if tree empty, return "empty tree"
+
         // find parent node value
         // if no parent node, save as "no parent"
-
-        // if tree empty, return "empty tree"
 
         // if node has right child
             // call toString for right child
@@ -77,10 +77,10 @@ public class Tree<E extends Comparable<? super E>> {
         // print name
         // set namePrinted to true
 
+        // if tree empty, return "empty tree"
+
         // find parent node value
         // if no parent node, save as "no parent"
-
-        // if tree empty, return "empty tree"
 
         // if node has left child
         // call toString for node left child
@@ -158,7 +158,22 @@ public class Tree<E extends Comparable<? super E>> {
      * Balance the tree
      */
     public void balanceTree() {
-        // TODO:
+        // arguments: tree info, stringed, indents, parent node value
+
+        // if not namePrinted
+            // add tree name to string array
+            // set nameprinted to true
+
+        // if not stringed
+            // call toString to put tree in string format
+            // set stringed to true
+        
+        // insert (value of array space at len/2) at root node
+        // save numbers to left of value to a temp array
+        // balanceTree() for smaller array
+        // save numbers to right of value to a temp array
+        // balanceTree() for smaller array
+
     }
 
     /**
