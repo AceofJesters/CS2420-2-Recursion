@@ -130,6 +130,7 @@ public class Tree<E extends Comparable<? super E>> {
                 // binaryTreeParentSearch parent
             // else return null
         // else return value of node
+        return null;
     }
 
     /**
