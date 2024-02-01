@@ -123,7 +123,15 @@ public class Tree<E extends Comparable<? super E>> {
      * @return count of number of nodes at specified level
      */
     public int nodesInLevel(int level) {
-        // TODO:
+        // parameters are level searched, current level, counter
+
+        // if node level == searched level
+        // add one to counter
+
+        // if node level != searched level
+        // add one to current level
+        // count left child node
+        // count right child node
         return 0;
     }
 
@@ -140,15 +148,6 @@ public class Tree<E extends Comparable<? super E>> {
      * @return Count of embedded binary search trees
      */
     public int countBST() {
-        // parameters are level searched, current level, counter
-
-        // if node level == searched level
-            // add one to counter
-
-        // if node level != searched level
-            // add one to current level
-            // count left child node
-            // count right child node
 
         return 0;
     }
