@@ -173,7 +173,11 @@ public class Tree<E extends Comparable<? super E>> {
     }
 
     public BinaryTreeNode getByKey(E key) {
-        // TODO:
+        // if nodekey == searched key
+            // return node
+        // if nodekey != searched key
+            // search left
+            // search right
         return null;
     }
 
