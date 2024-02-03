@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.ArrayList;
 
 public class Tree<E extends Comparable<? super E>> {
     private BinaryTreeNode root;  // Root of tree
@@ -43,28 +43,23 @@ public class Tree<E extends Comparable<? super E>> {
      * Return a string containing the tree contents as a tree with one node per line
      */
     public String toString() {
-        // arguments passed in: layer, string array, printed
+        String returnString = "";
 
-        // while namePrinted false
-            // print name
-            // set namePrinted to true
+        // print tree name
+        returnString += name;
 
         // if tree empty, return "empty tree"
+        if (root == null){
+            returnString += "Empty tree\n";
+        }
 
-        // find parent node value
-        // if no parent node, save as "no parent"
+        // call traversal function
+        if (root != null) {
+            returnString += root.parseToString(0);
+        }
 
-        // if node has right child
-            // call toString for right child
-
-        // add newline, correct amount of tabs to array
-        // add node to array
-
-        // if node has left child
-            // call toString for node left child
-
-        // return updated array
-        return "";
+        // return updated string
+        return returnString;
     }
 
     /**
@@ -265,7 +260,7 @@ public class Tree<E extends Comparable<? super E>> {
 
     // Basic node stored in unbalanced binary trees
     public class BinaryTreeNode {
-        E key;            // The data/key for the node
+        E key;                 // The data/key for the node
         BinaryTreeNode left;   // Left child
         BinaryTreeNode right;  // Right child
         BinaryTreeNode parent; //  Parent node
@@ -295,6 +290,38 @@ public class Tree<E extends Comparable<? super E>> {
             }
 
             return sb.toString();
+        }
+
+        public String parseToString(int layer){
+            String resultingString = "";
+
+            // call toString for right child if child exists
+            if (right != null){
+                resultingString += right.parseToString(layer + 1);
+            }
+
+            // format spacing
+            resultingString += "\n";
+            for (int i = layer; i >= 1; i--) {
+                resultingString += "   ";
+            }
+
+            // add self key to array
+            resultingString += key.toString();
+
+            // add parent to string
+            if (parent == null) {
+                resultingString += "[no parent]";
+            } else {
+                resultingString += "[" + parent.key + "]";
+            }
+
+            // call toString for node left child if child exists
+            if (left != null){
+                resultingString += left.parseToString(layer + 1);
+            }
+
+            return resultingString;
         }
     }
 }
