@@ -66,29 +66,22 @@ public class Tree<E extends Comparable<? super E>> {
      * Return a string containing the tree contents as a single line
      */
     public String inOrderToString() {
-        // arguments passed in: layer, string array, printed
+        String orderedString = "";
 
-        // while namePrinted false
         // print name
-        // set namePrinted to true
+        orderedString += name;
 
         // if tree empty, return "empty tree"
+        if (root == null) {
+            orderedString += "empty tree";
+        }
 
-        // find parent node value
-        // if no parent node, save as "no parent"
-
-        // if node has left child
-        // call toString for node left child
-
-        // add newline, correct amount of tabs to array
-        // add node to array
-
-        // if node has right child
-        // call toString for right child
+        if (root != null) {
+            orderedString += root.orderedTraversal(0);
+        }
 
         // return updated array
-
-        return "";
+        return orderedString;
     }
 
     /**
@@ -319,6 +312,37 @@ public class Tree<E extends Comparable<? super E>> {
             // call toString for node left child if child exists
             if (left != null){
                 resultingString += left.parseToString(layer + 1);
+            }
+
+            return resultingString;
+        }
+
+        String orderedTraversal(int layer){
+            String resultingString = "";
+
+            if (left != null){
+                resultingString += left.orderedTraversal(layer + 1);
+            }
+
+            // format spacing
+            resultingString += "\n";
+            for (int i = layer; i >= 1; i--) {
+                resultingString += "   ";
+            }
+
+            // add self key to array
+            resultingString += key.toString();
+
+            // add parent to string
+            if (parent == null) {
+                resultingString += "[no parent]";
+            } else {
+                resultingString += "[" + parent.key + "]";
+            }
+
+            // call toString for right child if child exists
+            if (right != null){
+                resultingString += right.orderedTraversal(layer + 1);
             }
 
             return resultingString;
