@@ -89,11 +89,7 @@ public class Tree<E extends Comparable<? super E>> {
      * reverse left and right children recursively
      */
     public void flip() {
-        // TODO:
-
-        // if node has no parent, add to new tree as base node
-        // add node's right to new tree's equivalent node's left
-        // add node's left to new tree's equivalent node's right
+        root.reverseTree(root);
     }
 
     /**
@@ -358,16 +354,30 @@ public class Tree<E extends Comparable<? super E>> {
 
         BinaryTreeNode findInOrderSuccessor(E toFind) {
             // TODO:
+            BinaryTreeNode leftSuccessor;
 
             // if toFind > me
-            // get right child's successor
-            // get left child's successor
-            // if left child's successor null
-            // return me
-            // else
-            // return left child's successor
+            if (toFind.compareTo(key) >= 0) {
+                if (right == null) {
+                    return null;
+                }
+                // get right child's successor
+                return right.findInOrderSuccessor(toFind);
+            }
 
-            return null;
+            if (left == null) {
+                return this;
+            }
+            // get left child's successor
+            leftSuccessor = left.findInOrderSuccessor(toFind);
+            // if left child's successor null
+            if (leftSuccessor == null) {
+                // return me
+                return this;
+            } else {
+                // return left child's successor
+                return leftSuccessor;
+            }
         }
 
         int countNodesInLevel(int searchFor, int searching) {
@@ -433,6 +443,22 @@ public class Tree<E extends Comparable<? super E>> {
             }
 
             return treeArray;
+        }
+
+        void reverseTree(BinaryTreeNode root) {
+            final BinaryTreeNode temp;
+
+            temp = right;
+            right = root.left;
+            left = temp;
+
+            if (left != null) {
+                reverseTree(root.left);
+            }
+
+            if (right != null) {
+                reverseTree(root.right);
+            }
         }
     }
 }
