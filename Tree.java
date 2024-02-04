@@ -50,7 +50,7 @@ public class Tree<E extends Comparable<? super E>> {
         returnString += name;
 
         // if tree empty, return "empty tree"
-        if (root == null){
+        if (root == null) {
             returnString += "Empty tree\n";
         }
 
@@ -90,7 +90,7 @@ public class Tree<E extends Comparable<? super E>> {
      * reverse left and right children recursively
      */
     public void flip() {
-        // parameters: old tree node, new tree
+        // TODO:
 
         // if node has no parent, add to new tree as base node
         // add node's right to new tree's equivalent node's left
@@ -99,6 +99,7 @@ public class Tree<E extends Comparable<? super E>> {
 
     /**
      * Returns the in-order successor of the specified node
+     *
      * @param node node from which to find the in-order successor
      */
     public BinaryTreeNode inOrderSuccessor(BinaryTreeNode node) {
@@ -115,7 +116,7 @@ public class Tree<E extends Comparable<? super E>> {
         // if node has left child
         if (node.left != null) {
             // binaryTreeChildSearch left child
-            return binaryTreeChildSearch (node.left);
+            return binaryTreeChildSearch(node.left);
         } else {
             // else return value of node
             return node;
@@ -150,31 +151,23 @@ public class Tree<E extends Comparable<? super E>> {
      * @return count of number of nodes at specified level
      */
     public int nodesInLevel(int level) {
-        // parameters are level searched, current level, counter
-
-        // if node level == searched level
-        // add one to counter
-
-        // if node level != searched level
-        // add one to current level
-        // count left child node
-        // count right child node
-        return 0;
+        return root.countNodesInLevel(level, 0);
     }
 
     /**
      * Print all paths from root to leaves
      */
     public void printAllPaths() {
+        // TODO:
         // save node to array
 
         // if node is not leaf node
-            // printAllPaths for left branch
-            // for right branch
+        // printAllPaths for left branch
+        // for right branch
 
         // if node is leaf node
-            // print array
-            // print newline
+        // print array
+        // print newline
 
         // remove node from array
     }
@@ -185,9 +178,9 @@ public class Tree<E extends Comparable<? super E>> {
      * @return Count of embedded binary search trees
      */
     public int countBST() {
-        // parameters: node info, bstcounter
-        // if left root is bst and right root is bst, add 1 to bstcounter
-        return 0; // return bstcounter
+        int bstCounter = 0;
+
+        return bstCounter;
     }
 
     /**
@@ -207,11 +200,12 @@ public class Tree<E extends Comparable<? super E>> {
      * Balance the tree
      */
     public void balanceTree() {
+        // TODO:
         // arguments: tree info, stringed, indents, parent node value
 
         // if not stringed
-            // call toString to put tree in string format
-            // set stringed to true
+        // call toString to put tree in string format
+        // set stringed to true
 
         // insert (value of array space at len/2) at root node
         // save numbers to left of value to a temp array
@@ -302,11 +296,11 @@ public class Tree<E extends Comparable<? super E>> {
             return sb.toString();
         }
 
-        public String parseToString(int layer){
+        public String parseToString(int layer) {
             String resultingString = "";
 
             // call toString for right child if child exists
-            if (right != null){
+            if (right != null) {
                 resultingString += right.parseToString(layer + 1);
             }
 
@@ -327,17 +321,17 @@ public class Tree<E extends Comparable<? super E>> {
             }
 
             // call toString for node left child if child exists
-            if (left != null){
+            if (left != null) {
                 resultingString += left.parseToString(layer + 1);
             }
 
             return resultingString;
         }
 
-        String orderedTraversal(int layer){
+        String orderedTraversal(int layer) {
             String resultingString = "";
 
-            if (left != null){
+            if (left != null) {
                 resultingString += left.orderedTraversal(layer + 1);
             }
 
@@ -358,7 +352,7 @@ public class Tree<E extends Comparable<? super E>> {
             }
 
             // call toString for right child if child exists
-            if (right != null){
+            if (right != null) {
                 resultingString += right.orderedTraversal(layer + 1);
             }
 
@@ -385,17 +379,37 @@ public class Tree<E extends Comparable<? super E>> {
             return null;
         }
 
-        BinaryTreeNode findInOrderSuccessor(E toFind){
+        BinaryTreeNode findInOrderSuccessor(E toFind) {
+            // TODO:
 
             // if toFind > me
-                // get right child's successor
-                // get left child's successor
-                // if left child's successor null
-                    // return me
-                // else
-                    // return left child's successor
+            // get right child's successor
+            // get left child's successor
+            // if left child's successor null
+            // return me
+            // else
+            // return left child's successor
 
             return null;
+        }
+
+        int countNodesInLevel(int searchFor, int searching) {
+            int thisTree = 0;
+
+            // if node level == searched level
+            if (searchFor == searching) {
+                return 1;
+            } else {
+                // count left child node
+                if (left != null) {
+                    thisTree += left.countNodesInLevel(searchFor, searching + 1);
+                }
+                // count right child node
+                if (right != null) {
+                    thisTree += right.countNodesInLevel(searchFor, searching + 1);
+                }
+                return thisTree;
+            }
         }
     }
 }
