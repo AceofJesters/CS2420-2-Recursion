@@ -1,4 +1,3 @@
-import java.security.spec.RSAOtherPrimeInfo;
 import java.util.ArrayList;
 
 public class Tree<E extends Comparable<? super E>> {
@@ -190,19 +189,7 @@ public class Tree<E extends Comparable<? super E>> {
      * Balance the tree
      */
     public void balanceTree() {
-        // TODO:
-        // arguments: tree info, stringed, indents, parent node value
-
-        // if not stringed
-        // call toString to put tree in string format
-        // set stringed to true
-
-        // insert (value of array space at len/2) at root node
-        // save numbers to left of value to a temp array
-        // balanceTree() for smaller array
-        // save numbers to right of value to a temp array
-        // balanceTree() for smaller array
-
+        new Tree(root.toArray(), name);
     }
 
     /**
@@ -425,6 +412,27 @@ public class Tree<E extends Comparable<? super E>> {
             }
 
             path.remove(path.size() - 1);
+        }
+
+        ArrayList<E> toArray() {
+            //TODO:
+
+            ArrayList<E> treeArray = new ArrayList<E>();
+
+            //self
+            treeArray.add(root.key);
+
+            //left
+            if (left != null) {
+                treeArray.addAll(left.toArray());
+            }
+
+            //right
+            if (right != null) {
+                treeArray.addAll(right.toArray());
+            }
+
+            return treeArray;
         }
     }
 }
