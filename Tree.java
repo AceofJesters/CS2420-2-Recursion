@@ -158,18 +158,8 @@ public class Tree<E extends Comparable<? super E>> {
      * Print all paths from root to leaves
      */
     public void printAllPaths() {
-        // TODO:
-        // save node to array
-
-        // if node is not leaf node
-        // printAllPaths for left branch
-        // for right branch
-
-        // if node is leaf node
-        // print array
-        // print newline
-
-        // remove node from array
+        ArrayList<String> path = new ArrayList<String>();
+        root.printingPaths(path);
     }
 
     /**
@@ -410,6 +400,31 @@ public class Tree<E extends Comparable<? super E>> {
                 }
                 return thisTree;
             }
+        }
+
+        void printingPaths(ArrayList<String> path) {
+            // save node to array
+            path.add(key.toString());
+
+            // if node is leaf node
+            if (right == null && left == null) {
+                // print array
+                for (int i = 0; i < path.size(); i++){
+                    System.out.print(path.get(i) + " ");
+                }
+                System.out.println();
+            } else {
+                // printAllPaths for left branch
+                if (left != null) {
+                    left.printingPaths(path);
+                }
+                // for right branch
+                if (right != null) {
+                    right.printingPaths(path);
+                }
+            }
+
+            path.remove(path.size() - 1);
         }
     }
 }
