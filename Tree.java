@@ -1,3 +1,4 @@
+import java.security.spec.RSAOtherPrimeInfo;
 import java.util.ArrayList;
 
 public class Tree<E extends Comparable<? super E>> {
@@ -76,6 +77,7 @@ public class Tree<E extends Comparable<? super E>> {
             orderedString += "empty tree";
         }
 
+        // print tree in order
         if (root != null) {
             orderedString += root.orderedTraversal(0);
         }
@@ -100,25 +102,45 @@ public class Tree<E extends Comparable<? super E>> {
      * @param node node from which to find the in-order successor
      */
     public BinaryTreeNode inOrderSuccessor(BinaryTreeNode node) {
-        // if right child exists, run binaryTreeChildSearch()
-        // else, run binaryTreeParentSearch
-        return null;
+
+        if (node == null) {
+            return null;
+        }
+
+        return root.findInOrderSuccessor(node.key);
+
     }
 
     public BinaryTreeNode binaryTreeChildSearch(BinaryTreeNode node) {
         // if node has left child
+        if (node.left != null) {
             // binaryTreeChildSearch left child
-        // else return value of node
-        return null;
+            return binaryTreeChildSearch (node.left);
+        } else {
+            // else return value of node
+            return node;
+        }
     }
 
-    public BinaryTreeNode binaryTreeParentSearch(BinaryTreeNode node) {
+    public BinaryTreeNode binaryTreeParentSearch(BinaryTreeNode node, BinaryTreeNode start) {
+
+        Integer nodeKey = (Integer) node.key;
+        Integer startKey = (Integer) start.key;
+
         // if node is smaller than analysed value
+        if (nodeKey < startKey) {
             // if parent exists
+            if (node.parent != null) {
                 // binaryTreeParentSearch parent
-            // else return null
-        // else return value of node
-        return null;
+                return binaryTreeParentSearch(node.parent, start);
+            } else {
+                // else return null
+                return null;
+            }
+        } else {
+            // else return value of node
+            return node;
+        }
     }
 
     /**
@@ -178,12 +200,7 @@ public class Tree<E extends Comparable<? super E>> {
     }
 
     public BinaryTreeNode getByKey(E key) {
-        // if nodekey == searched key
-            // return node
-        // if nodekey != searched key
-            // search left
-            // search right
-        return null;
+        return root.searchForKey(key);
     }
 
     /**
@@ -346,6 +363,39 @@ public class Tree<E extends Comparable<? super E>> {
             }
 
             return resultingString;
+        }
+
+        BinaryTreeNode searchForKey(E objective) {
+            // if nodekey == searched key
+            if (objective.equals(this.key)) {
+                // return node
+                return this;
+            } else {
+                // continue searching
+                if (objective.compareTo(this.key) > 0) {
+                    if (right != null) {
+                        return right.searchForKey(objective);
+                    }
+                } else {
+                    if (left != null) {
+                        return left.searchForKey(objective);
+                    }
+                }
+            }
+            return null;
+        }
+
+        BinaryTreeNode findInOrderSuccessor(E toFind){
+
+            // if toFind > me
+                // get right child's successor
+                // get left child's successor
+                // if left child's successor null
+                    // return me
+                // else
+                    // return left child's successor
+
+            return null;
         }
     }
 }
